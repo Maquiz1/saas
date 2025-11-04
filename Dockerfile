@@ -35,10 +35,10 @@ RUN mkdir -p /code
 WORKDIR /code
 
 # Copy the requirements file into the container
-COPY ./saas/requirements.txt /tmp/requirements.txt
+COPY requirements.txt /tmp/requirements.txt
 
 # copy the project code into the container's working directory
-COPY ./saas /code
+COPY . /code
 
 # Install the Python project requirements
 RUN pip install -r /tmp/requirements.txt
