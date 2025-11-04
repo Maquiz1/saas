@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} - {{ block.super }}{% endblock %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+<p>Welcome, {{ user.username }}! {{ request.user}}</p>
+<p>This is the home page of the SaaS application.</p>
+{% endblock %}

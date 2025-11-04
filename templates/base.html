@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}SaaS App{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to My SaaS Application</h1>
+    </header>
+    <main>
+        {% block content %}
+        <p>This is the default content.</p>
+
+        {% endblock %}
+    </main>
+
+    <h3>Recent Page Visits: {{ queryset_count }}</h3>
+    <ul>
+        {% for visit in queryset %}
+        <li>{{ visit.path }} - {{ visit.timestamp }}</li>
+        {% endfor %}
+    </ul>
+    {% include "snippets/welcome-user-message.html" %}
+
+
+    <footer>
+        <p>&copy; 2023 My SaaS Application</p>
+    </footer>
+</body>
+
+</html>
