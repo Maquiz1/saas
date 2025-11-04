@@ -38,11 +38,10 @@ WORKDIR /code
 COPY requirements.txt /tmp/requirements.txt
 
 # copy the project code into the container's working directory
-COPY ./src /code
+COPY ./saas /code
 
 # Install the Python project requirements
 RUN pip install -r /tmp/requirements.txt
-
 
 # database isn't available during build
 # run any other commands that do not need the database
@@ -50,7 +49,7 @@ RUN pip install -r /tmp/requirements.txt
 # RUN python manage.py collectstatic --noinput
 
 # set the Django default project name
-ARG PROJ_NAME="saas"
+ARG PROJ_NAME="src"
 
 # create a bash script to run the Django project
 # this script will execute at runtime when
