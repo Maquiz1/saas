@@ -9,9 +9,14 @@ def home_page_view(request, *args, **kwargs):
     queryset = PageVisit.objects.all()
     queryset_count = queryset.count()
     PageVisit.objects.create(path=request.path)
+    try:
+        percentage = queryset_count / queryset.count() * 100
+    except:
+        percentage = 0
     context = {
         "title": my_title,
         "queryset": queryset,
-        "queryset_count": queryset_count
+        "queryset_count": queryset_count,
+        "percentage": percentage
     }
     return render(request, html_template, context)

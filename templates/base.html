@@ -19,6 +19,7 @@
     </main>
 
     <h3>Recent Page Visits: {{ queryset_count }}</h3>
+    <p>Percentage of Total Visits: {{ percentage }}%</p>
     <ul>
         {% for visit in queryset %}
         <li>{{ visit.path }} - {{ visit.timestamp }}</li>
